@@ -1,5 +1,8 @@
+package util;
+
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import util.MyAppenderClass;
 
 
 public class LoggerImplement {
@@ -9,8 +12,10 @@ public class LoggerImplement {
 
     public static void main(String[] args) {
 
-        printLogInfo("Hola Log4j");
-        printLogError("Perror errro");
+            printLogInfo("Hola Log4j lunes");
+            printLogError("Perror errro lunes");
+
+
     }
 
     /**
@@ -20,6 +25,8 @@ public class LoggerImplement {
     public static void printLogInfo(String mensaje){
 
         try {
+
+            log.getAppender("MyAppender.MyAppender");
             log.info(mensaje);
 
         } catch (Exception e) {
@@ -38,7 +45,6 @@ public class LoggerImplement {
             log.error(mensaje);
 
         } catch (Exception e) {
-
             System.out.println("Se presentó un error: "+e);
             e.printStackTrace();
         }
